@@ -54,8 +54,9 @@ public class PhonebookTest {
     public void printAllNamesTest() {
         Phonebook phonebookTest = new Phonebook();
         phonebookTest.add("Ivan", 15);
+        phonebookTest.add("Andrey", 1);
         phonebookTest.printAllNames();
-        Assertions.assertEquals(outContent.toString(), "Ivan\n");
+        Assertions.assertEquals(outContent.toString(),"Andrey\r\nIvan\r\n");
     }
     @AfterAll
     public static void restoreStreams() {
