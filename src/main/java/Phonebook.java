@@ -1,5 +1,10 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Phonebook {
+    Map<String, Integer> book = new HashMap<>();
     public int add(String name, int number) {
-        return 0;
+        book.put(name, number);
+        return book.size();
     }
 }
