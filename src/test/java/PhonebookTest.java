@@ -1,6 +1,18 @@
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.hamcrest.core.StringContains;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class PhonebookTest {
+    private static ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    @BeforeAll
+    public static void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
 
     @Test
     public void addOneTest() {
@@ -37,6 +49,17 @@ public class PhonebookTest {
         Phonebook phonebookTest = new Phonebook();
         phonebookTest.add("Ivan", 15);
         Assertions.assertEquals(0, phonebookTest.findByName("Sergey"));
+    }
+    @Test
+    public void printAllNamesTest() {
+        Phonebook phonebookTest = new Phonebook();
+        phonebookTest.add("Ivan", 15);
+        phonebookTest.printAllNames();
+        Assertions.assertEquals(outContent.toString(), "Ivan\n");
+    }
+    @AfterAll
+    public static void restoreStreams() {
+        System.setOut(null);
     }
 
 }
