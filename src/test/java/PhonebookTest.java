@@ -21,5 +21,10 @@ public class PhonebookTest {
         phonebookTest.add("Ivan", 15);
         Assertions.assertEquals(phonebookTest.findByNumber(15), "Ivan");
     }
+    @Test
+    public void findNumberThatNotAdded() {
+        Phonebook phonebookTest = new Phonebook();
+        Assertions.assertNull(phonebookTest.findByNumber(15));
+    }
 
 }

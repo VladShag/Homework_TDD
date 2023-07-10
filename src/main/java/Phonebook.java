@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Phonebook {
     Map<String, Integer> book = new HashMap<>();
@@ -8,6 +9,13 @@ public class Phonebook {
         return book.size();
     }
     public String findByNumber(int number) {
+        if(book.containsValue(number)) {
+            for (Map.Entry<String, Integer> entry : book.entrySet()) {
+                if(Objects.equals(number, entry.getValue())) {
+                    return entry.getKey();
+                }
+            }
+        }
         return null;
     }
 }
