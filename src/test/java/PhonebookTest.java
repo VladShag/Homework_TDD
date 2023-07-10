@@ -5,7 +5,7 @@ public class PhonebookTest {
     @Test
     public void addOneTest() {
         Phonebook phonebookTest = new Phonebook();
-        Assertions.assertEquals(phonebookTest.add("Ivan", 899999212), 1);
+        Assertions.assertEquals(1, phonebookTest.add("Ivan", 899999212));
     }
     @Test
     public void addTwoTest() {
@@ -13,18 +13,24 @@ public class PhonebookTest {
         int result = 0;
         result = phonebookTest.add("Ivan", 15);
         result = phonebookTest.add("Sergey", 10);
-        Assertions.assertEquals(result, 2);
+        Assertions.assertEquals(2, result);
     }
     @Test
     public void findByNumberTest() {
         Phonebook phonebookTest = new Phonebook();
         phonebookTest.add("Ivan", 15);
-        Assertions.assertEquals(phonebookTest.findByNumber(15), "Ivan");
+        Assertions.assertEquals("Ivan", phonebookTest.findByNumber(15));
     }
     @Test
-    public void findNumberThatNotAdded() {
+    public void findNumberThatNotAddedTest() {
         Phonebook phonebookTest = new Phonebook();
         Assertions.assertNull(phonebookTest.findByNumber(15));
+    }
+    @Test
+    public void findByNameTest() {
+        Phonebook phonebookTest = new Phonebook();
+        phonebookTest.add("Ivan", 15);
+        Assertions.assertEquals(15, phonebookTest.findByName("Ivan"));
     }
 
 }
