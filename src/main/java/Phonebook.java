@@ -19,6 +19,6 @@ public class Phonebook {
         return null;
     }
     public int findByName(String name) {
-        return 0;
+        return book.getOrDefault(name, 0);
     }
 }

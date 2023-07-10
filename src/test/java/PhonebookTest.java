@@ -32,5 +32,11 @@ public class PhonebookTest {
         phonebookTest.add("Ivan", 15);
         Assertions.assertEquals(15, phonebookTest.findByName("Ivan"));
     }
+    @Test
+    public void findByNameThatNotAddedTest() {
+        Phonebook phonebookTest = new Phonebook();
+        phonebookTest.add("Ivan", 15);
+        Assertions.assertEquals(0, phonebookTest.findByName("Sergey"));
+    }
 
 }
