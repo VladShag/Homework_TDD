@@ -15,5 +15,11 @@ public class PhonebookTest {
         result = phonebookTest.add("Sergey", 10);
         Assertions.assertEquals(result, 2);
     }
+    @Test
+    public void findByNumberTest() {
+        Phonebook phonebookTest = new Phonebook();
+        phonebookTest.add("Ivan", 15);
+        Assertions.assertEquals(phonebookTest.findByNumber(15), "Ivan");
+    }
 
 }

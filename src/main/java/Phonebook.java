@@ -7,4 +7,7 @@ public class Phonebook {
         book.put(name, number);
         return book.size();
     }
+    public String findByNumber(int number) {
+        return null;
+    }
 }
